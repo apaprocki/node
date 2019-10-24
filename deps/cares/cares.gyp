@@ -22,6 +22,13 @@
           '__EXTENSIONS__',
           '_XOPEN_SOURCE=500'
         ]
+      }],
+      # clock_gettime() is in librt for glibc < 2.17
+      ['OS=="linux"', {
+        'libraries': [ '-lrt' ],
+        'direct_dependent_settings': {
+          'libraries': [ '-lrt' ]
+        }
       }]
     ]
   },
